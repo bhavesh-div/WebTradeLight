@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 
 import { symbolsData } from "../../types/Dashboard/Symbol";
+import SymbolTableRow from "./SymbolTableRow";
 
 const symbols: symbolsData[] = [
   {
@@ -88,7 +89,7 @@ const SymbolTable = () => {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        {/* <TableBody>
           {symbols.map((row, index) => (
             <TableRow
               key={index}
@@ -137,12 +138,12 @@ const SymbolTable = () => {
               </TableCell>
             </TableRow>
           ))}
+        </TableBody> */}
+        <TableBody>
+          {symbols.map((symbol: symbolsData, index: number) => (
+            <SymbolTableRow key={index} SymbolData={symbol} />
+          ))}
         </TableBody>
-        {/* <TableBody>
-            {symbols.map((symbol: symbolsData, index: number) => (
-              <SymbolTableRow key={index} SymbolData={symbol} />
-            ))}
-          </TableBody> */}
       </Table>
     </TableContainer>
   );
