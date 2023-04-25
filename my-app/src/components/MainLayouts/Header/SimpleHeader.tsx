@@ -92,7 +92,13 @@ export default function MiniDrawer() {
               position: "relative",
             }}
           >
-            <Box sx={{ height: "450px" }}>
+            <Box
+              sx={{
+                height: { xs: "auto", sm: "auto", md: "450px" },
+                overflow: "auto",
+                position: "relative",
+              }}
+            >
               <Box
                 sx={{
                   textAlign: "center",
