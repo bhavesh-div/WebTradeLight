@@ -7,6 +7,7 @@ import {
   TableCell,
   TableBody,
   Typography,
+  Box,
 } from "@mui/material";
 
 import { symbolsData } from "../../types/Dashboard/Symbol";
@@ -106,14 +107,18 @@ const SymbolTable = () => {
               }}
             >
               <TableCell sx={{ border: "none" }}>
-                <Typography
-                  sx={{
-                    color: "#FFFFFF",
-                    fontSize: "12px",
-                  }}
-                >
-                  {row.SymbolName}
-                </Typography>
+                <Box display="flex" alignItems="center">
+                  <img src={`/Images/Symbols/${row.Symbol}`} alt="" />
+                  &nbsp;
+                  <Typography
+                    sx={{
+                      color: "#FFFFFF",
+                      fontSize: "12px",
+                    }}
+                  >
+                    {row.SymbolName}
+                  </Typography>
+                </Box>
               </TableCell>
               <TableCell sx={{ textAlign: "right", border: "none" }}>
                 <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
