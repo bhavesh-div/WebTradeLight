@@ -20,7 +20,6 @@ const BottomMenu = () => {
 
   return (
     <>
-      {" "}
       <Paper
         sx={{
           position: "fixed",

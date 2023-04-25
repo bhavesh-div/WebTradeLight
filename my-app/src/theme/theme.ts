@@ -40,6 +40,23 @@ declare module "@mui/material/Typography" {
   }
 }
 
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    body4: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    body4?: React.CSSProperties;
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    body4: true;
+  }
+}
+
 // Update the Typography's variant prop options
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
@@ -174,6 +191,14 @@ const theme = createTheme({
       fontSize: "17px",
       lineHeight: "21px",
       color: "#FFFFFF",
+    },
+    body4: {
+      fontFamily: "Inter",
+      fontSize: "10px",
+      letterSpacing: "-0.01em",
+      color: "#b1b1b1",
+      fontWeight: "500",
+      lineHeight: "15px",
     },
   },
 

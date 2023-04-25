@@ -6,7 +6,7 @@ function CandleChart() {
   const isMdUp = useGetMediaQueryUp("md");
   return (
     <div>
-      <Box marginTop={"-50px"} marginLeft={"70px"}>
+      <Box marginTop={"-50px"} marginLeft={isMdUp ? "70px" : ""}>
         <Box
           component="img"
           src={`/Images/${isMdUp ? "candle-chart" : "candle-char-mobile"}.png`}

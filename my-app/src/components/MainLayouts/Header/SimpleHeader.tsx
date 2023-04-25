@@ -4,11 +4,9 @@ import {
   Box,
   Stack,
   Switch,
-  Paper,
   Button,
-  Link,
   BottomNavigationAction,
-  Container,
+  BottomNavigation,
 } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -20,14 +18,6 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import ProfileMenu from "../../Dashboard/ProfileMenu";
 
 const drawerWidth = 300;
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -68,6 +58,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer() {
+  const [activeBottomNav, setActiveBottomNav] = useState(0);
   const [isLight, setIsLight] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [open] = React.useState(false);
@@ -82,31 +73,39 @@ export default function MiniDrawer() {
     <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
       <Drawer variant="permanent" open={open}>
         <Divider />
-        <List>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              overflow: "auto",
-              position: "relative",
-            }}
-          >
-            <Box
-              sx={{
-                height: { xs: "auto", sm: "auto", md: "450px" },
-                overflow: "auto",
-                position: "relative",
-              }}
-            >
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 1,
-                }}
-              >
-                <Link component="button" underline="none">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100vh",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box>
+            <List>
+              <Box>
+                <BottomNavigation
+                  showLabels
+                  value={activeBottomNav}
+                  onChange={(event, newValue) => {
+                    setActiveBottomNav(newValue);
+                    console.log("newvalue", newValue);
+                  }}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    flexDirection: "column",
+                  }}
+                >
                   <BottomNavigationAction
+                    sx={{
+                      m: "10px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    label={<Typography variant="body4">Trade</Typography>}
                     icon={
                       <Box
                         component="img"
@@ -118,134 +117,111 @@ export default function MiniDrawer() {
                       />
                     }
                   />
-                  <Typography variant="h6">Trade</Typography>
-                </Link>
-              </Box>
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 1,
-                }}
-              >
-                <Link component="button" underline="none">
+
                   <BottomNavigationAction
+                    sx={{
+                      m: "10px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    label={<Typography variant="body4">Calendar</Typography>}
                     icon={
                       <Box
                         component="img"
                         src="/images/Icons/calendar.svg"
                         sx={{
-                          width: "21px",
-                          height: "23.33px",
+                          height: "24px",
+                          width: "20.87px",
                         }}
                       />
                     }
                   />
-                  <Typography variant="h6">Calendar</Typography>
-                </Link>
-              </Box>
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 1,
-                }}
-              >
-                <Link component="button" underline="none">
+
                   <BottomNavigationAction
+                    sx={{
+                      m: "10px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    label={
+                      <Typography variant="body4">Copy Trading</Typography>
+                    }
                     icon={
                       <Box
                         component="img"
                         src="/images/Icons/copy-trading.svg"
                         sx={{
-                          width: "21px",
-                          height: "23.33px",
+                          height: "20px",
+                          width: "17px",
                         }}
                       />
                     }
                   />
-                  <Typography variant="h6">Copy Trading</Typography>
-                </Link>
-              </Box>
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 1,
-                }}
-              >
-                <Link component="button" underline="none">
+
                   <BottomNavigationAction
+                    sx={{
+                      m: "10px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    label={
+                      <Typography variant="body4"> Top Movers </Typography>
+                    }
                     icon={
                       <Box
                         component="img"
                         src="/images/Icons/top-movers.svg"
                         sx={{
-                          width: "21px",
-                          height: "23.33px",
+                          height: "20px",
+                          width: "17px",
                         }}
                       />
                     }
                   />
-                  <Typography variant="h6">Top Movers</Typography>
-                </Link>
-              </Box>
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 1,
-                }}
-              >
-                <Link component="button" underline="none">
+
                   <BottomNavigationAction
+                    sx={{
+                      m: "10px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    label={<Typography variant="body4">News</Typography>}
                     icon={
                       <Box
                         component="img"
                         src="/images/Icons/news.svg"
                         sx={{
-                          width: "21px",
-                          height: "23.33px",
+                          height: "23px",
+                          width: "22.08px",
                         }}
                       />
                     }
                   />
-                  <Typography variant="h6">News</Typography>
-                </Link>
+                </BottomNavigation>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                justifyContent: "flex-end",
-                alignItems: "flex-end",
-                textAlign: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  p: 2,
-                }}
-              >
-                <Stack flexDirection="column" spacing={2} alignItems="center">
-                  <DarkModeOutlinedIcon
-                    color={isLight ? "inherit" : "warning"}
-                  />
-                  <Switch
-                    checked={isLight}
-                    onChange={() => setIsLight(!isLight)}
-                    inputProps={{ "aria-label": "controlled" }}
-                    color="warning"
-                    sx={{ m: 0, rotate: "-90deg" }}
-                  />
-                  <LightModeOutlinedIcon
-                    color={isLight ? "warning" : "inherit"}
-                  />
-                </Stack>
-              </Box>
-              <Box sx={{}}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    zIndex: 2,
-                  }}
-                >
+            </List>
+          </Box>
+          <Box>
+            <List>
+              <Box>
+                <Box>
+                  <Stack flexDirection="column" spacing={2} alignItems="center">
+                    <DarkModeOutlinedIcon
+                      color={isLight ? "inherit" : "warning"}
+                    />
+                    <Switch
+                      checked={isLight}
+                      onChange={() => setIsLight(!isLight)}
+                      inputProps={{ "aria-label": "controlled" }}
+                      color="warning"
+                      sx={{ m: 0, rotate: "-90deg" }}
+                    />
+                    <LightModeOutlinedIcon
+                      color={isLight ? "warning" : "inherit"}
+                    />
+                  </Stack>
+                </Box>
+                <Box>
                   <Button
                     id="profile-menu"
                     aria-controls={openProfileMenu ? "profile-menu" : undefined}
@@ -270,9 +246,9 @@ export default function MiniDrawer() {
                   />
                 </Box>
               </Box>
-            </Box>
+            </List>
           </Box>
-        </List>
+        </Box>
       </Drawer>
     </Box>
   );
