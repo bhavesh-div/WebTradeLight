@@ -53,17 +53,20 @@ const SymbolTableRow = ({ SymbolData }: { SymbolData: symbolsData }) => {
         <TableCell>
           <Box display="flex" alignItems="center">
             <img src={`/Images/Symbols/${SymbolData.Symbol}`} alt="" />
-            <Typography variant="h6">{SymbolData.SymbolName}</Typography>
+            <Typography variant="body5">{SymbolData.SymbolName}</Typography>
           </Box>
         </TableCell>
         <TableCell align="center">
           {open ? (
-            <Box display="flex" gap="5px">
+            <Box display="flex" justifyContent="center" gap="5px">
               <Button
                 variant="outlined"
                 color="info"
-                sx={{ width: "20px" }}
-                size="small"
+                sx={{
+                  width: "auto",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
                 <Typography
                   sx={{
@@ -71,42 +74,38 @@ const SymbolTableRow = ({ SymbolData }: { SymbolData: symbolsData }) => {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                  fontSize="8px"
+                  fontSize="12px"
                 >
-                  <InfoIcon sx={{ height: "15px" }} />
+                  <InfoIcon sx={{ height: "16px" }} />
                   Info
                 </Typography>
               </Button>
-              <Button
-                variant="outlined"
-                color="info"
-                sx={{ width: "50px", padding: "10px 40px", height: "30px" }}
-              >
+              <Button variant="outlined" color="info" sx={{ width: "auto" }}>
                 <Typography
-                  variant="h6"
                   sx={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                  fontSize="8px"
+                  fontSize="12px"
+                  textTransform={"capitalize"}
                 >
-                  <AddRoundedIcon sx={{ height: "15px" }} />
+                  <AddRoundedIcon sx={{ height: "18px" }} />
                   Create Order
                 </Typography>
               </Button>
             </Box>
           ) : (
-            <Typography color="text.danger" variant="h6">
+            <Typography color="text.danger" variant="body5">
               {SymbolData.Price}
             </Typography>
           )}
         </TableCell>
         <TableCell align="right">
-          <Typography variant="h6">{SymbolData.Spread}</Typography>
+          <Typography variant="body5">{SymbolData.Spread}</Typography>
         </TableCell>
         <TableCell align="right">
-          <Typography color="text.danger" variant="h6">
+          <Typography color="text.danger" variant="body5">
             -{SymbolData.Change.toFixed(2)}%
           </Typography>
         </TableCell>
@@ -135,29 +134,61 @@ const SymbolTableRow = ({ SymbolData }: { SymbolData: symbolsData }) => {
                 sx={{
                   display: "flex",
                   alignItems: "flex-start",
-                  width: "100px",
-                  height: "36px",
+                  width: "100%",
+                  height: "40px",
                   flex: "1",
+                  backgroundColor: "error.light",
                 }}
                 variant="contained"
-                color="error"
               >
-                <Typography fontSize="8px" color="rgba(251, 251, 251, 0.75)">
+                <Box display="flex" flexDirection="column" alignItems="left">
+                  <Typography
+                    fontSize="8px"
+                    sx={{
+                      textAlign: "left",
+                      textTransform: "capitalize",
+                      fontWeight: "500",
+                      lineHeight: "10px",
+                      fontFamily: "inter",
+                      letterSpacing: "0.1px",
+                    }}
+                  >
+                    Sell
+                  </Typography>
+                  <Typography
+                    sx={{
+                      textAlign: "left",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      color: "#fff",
+                      lineHeight: "15px",
+                      fontFamily: "Inter",
+                      letterSpacing: "0.3px",
+                    }}
+                  >
+                    {SymbolData.Price}
+                  </Typography>
+                </Box>
+
+                <Typography
+                  fontSize="8px"
+                  color="rgba(251, 251, 251, 0.75)"
+                  sx={{
+                    textAlign: "right",
+                    textTransform: "capitalize",
+                    fontWeight: "500",
+                    lineHeight: "10px",
+                    fontFamily: "inter",
+                    letterSpacing: "0.1px",
+                  }}
+                >
                   Low:{SymbolData.Price}
                 </Typography>
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="flex-start"
-                >
-                  <Typography fontSize="8px">Sell</Typography>
-                  <Typography>{SymbolData.Price}</Typography>
-                </Box>
               </Button>
             </Box>
           </TableCell>
           <TableCell>
-            <Box display="flex" flexDirection="column" width="60%">
+            <Box display="flex" flexDirection="column" width="100%">
               <Box
                 sx={{
                   border: "1px solid ",
@@ -174,30 +205,31 @@ const SymbolTableRow = ({ SymbolData }: { SymbolData: symbolsData }) => {
                   onClick={handleSubValue}
                   sx={{
                     borderRadius: "0px",
-                    width: "30px",
+                    width: "100%",
                     height: "30px",
-                    borderColor: "#525969",
+                    borderColor: "#525969 ",
                     borderBottomLeftRadius: "7px",
-                    backgroundColor: "#41495A",
+                    backgroundColor: "#41495A !important",
                   }}
                 >
                   <RemoveRoundedIcon sx={{ height: "9.42px" }} />
                 </Button>
                 <Divider orientation="vertical" sx={{ bgColor: "#545B6B" }} />
-                <Button
+                <Box
+                  component={Button}
                   variant="outlined"
                   onClick={handleAddValue}
                   sx={{
                     borderRadius: "0px",
-                    width: "30px",
+                    width: "100%",
                     height: "30px",
                     borderBottomRightRadius: "7px",
                     borderColor: "#525969",
-                    backgroundColor: "#41495A",
+                    backgroundColor: "#41495A !important",
                   }}
                 >
                   <AddRoundedIcon sx={{ height: "9.42px" }} />
-                </Button>
+                </Box>
               </Box>
             </Box>
           </TableCell>
@@ -215,13 +247,25 @@ const SymbolTableRow = ({ SymbolData }: { SymbolData: symbolsData }) => {
                   display: "flex",
                   alignItems: "flex-start",
                   flex: "1",
-                  width: "100px",
-                  height: "36px",
+                  width: "100%",
+                  height: "38px",
+                  backgroundColor: "success.light",
                 }}
                 variant="contained"
-                color="success"
               >
-                <Typography fontSize="8px" color="rgba(251, 251, 251, 0.75)">
+                <Typography
+                  fontSize="8px"
+                  color="rgba(251, 251, 251, 0.75)"
+                  sx={{
+                    textAlign: "right",
+                    fontSize: "8px",
+                    textTransform: "capitalize",
+                    fontWeight: "500",
+                    lineHeight: "10px",
+                    fontFamily: "inter",
+                    letterSpacing: "0.1px",
+                  }}
+                >
                   High:{SymbolData.Price}
                 </Typography>
                 <Box
@@ -229,8 +273,33 @@ const SymbolTableRow = ({ SymbolData }: { SymbolData: symbolsData }) => {
                   flexDirection="column"
                   alignItems="flex-end"
                 >
-                  <Typography fontSize="8px">High</Typography>
-                  <Typography>{SymbolData.Price}</Typography>
+                  <Typography
+                    fontSize="8px"
+                    sx={{
+                      color: "rgba(251, 251, 251, 0.75)",
+                      textAlign: "right",
+                      fontSize: "8px",
+                      textTransform: "capitalize",
+                      fontWeight: "500",
+                      lineHeight: "10px",
+                      fontFamily: "inter",
+                      letterSpacing: "0.3px",
+                    }}
+                  >
+                    High
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      color: "#fff",
+                      lineHeight: "15px",
+                      fontFamily: "Inter",
+                      letterSpacing: "0.3px",
+                    }}
+                  >
+                    {SymbolData.Price}
+                  </Typography>
                 </Box>
               </Button>
             </Box>

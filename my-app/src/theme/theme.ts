@@ -43,17 +43,20 @@ declare module "@mui/material/Typography" {
 declare module "@mui/material/styles" {
   interface TypographyVariants {
     body4: React.CSSProperties;
+    body5: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     body4?: React.CSSProperties;
+    body5?: React.CSSProperties;
   }
 }
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     body4: true;
+    body5: true;
   }
 }
 
@@ -83,7 +86,7 @@ const theme = createTheme({
       // contrastText: "rgba(0, 0, 0, 0.87)",
     },
     error: {
-      // light: red[50],
+      light: "#ED4C5C !important",
       main: "rgba(237, 76, 92, 1)",
       // dark: red[700],
     },
@@ -92,7 +95,7 @@ const theme = createTheme({
       // dark: "#C77700",
     },
     success: {
-      // light: green[50],
+      light: "#27B56D !important",
       main: "#56B786",
       // dark: green[700],
     },
@@ -197,6 +200,14 @@ const theme = createTheme({
       fontSize: "10px",
       letterSpacing: "-0.01em",
       color: "#b1b1b1",
+      fontWeight: "500",
+      lineHeight: "15px",
+    },
+    body5: {
+      fontFamily: "Inter",
+      fontSize: "12px",
+      letterSpacing: "-0.01em",
+      color: "#fff",
       fontWeight: "500",
       lineHeight: "15px",
     },
