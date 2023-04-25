@@ -27,6 +27,7 @@ import MiniDrawer from "../MainLayouts/Header/SimpleHeader";
 import Bottomcon from "../../pages/Symbols/bottomcon";
 
 import CandleChart from "./Candle/index";
+import Stocks from "../../pages/Symbols/Stocks";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -228,6 +229,7 @@ export default function PrimarySearchAppBar() {
       <Grid container sx={{ flexWrap: { md: "nowrap" }, height: "10px" }}>
         <Grid item xs={12} md={8}>
           <CandleChart />
+          <Stocks />
         </Grid>
         <Grid item xs={12} md={4}>
           <Symbols />
