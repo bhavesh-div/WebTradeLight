@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import MainTabs from "../../components/common/MainTabs";
+import StocksTable from "./StocksTable";
 import MuiTabs from "../../components/common/MuiTabs";
 import { useGetMediaQueryUp } from "../../hooks/useGetMediaQuery";
 import { Box } from "@mui/material";
@@ -21,7 +22,7 @@ export default function Stocks() {
 
   return (
     <div>
-      <Box padding="20px" marginTop={isMdUp ? "10px" : ""}>
+      <Box padding="10px" marginLeft={isMdUp ? "65px" : ""}>
         <Box sx={{ marginBottom: "7px" }}>
           <MuiTabs
             tabData={stokesTypes}
@@ -30,6 +31,7 @@ export default function Stocks() {
             variant="fullWidth"
           />
         </Box>
+        <StocksTable />
       </Box>
     </div>
   );

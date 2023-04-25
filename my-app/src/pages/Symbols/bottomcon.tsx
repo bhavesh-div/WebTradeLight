@@ -12,6 +12,7 @@ function bottomcon() {
           height: "80px",
           width: "830px",
           top: "600px",
+          marginLeft: "100px",
           borderRadius: "100px",
           boxShadow:
             "rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;",

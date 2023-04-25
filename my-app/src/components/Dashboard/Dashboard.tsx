@@ -235,6 +235,14 @@ export default function PrimarySearchAppBar() {
           <Symbols />
         </Grid>
       </Grid>
+
+      <Grid item xs={12} md={9}>
+        <Container>
+          <Box>
+            <Bottomcon />
+          </Box>
+        </Container>
+      </Grid>
     </Box>
   );
 }
