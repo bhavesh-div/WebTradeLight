@@ -22,6 +22,11 @@ import ProfileMenu from "../../components/Dashboard/ProfileMenu/index";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import HeaderFundsComponent from "../MainLayouts/Header/HeaderFundsComponent";
 import Symbols from "../../pages/Symbols";
+import MiniDrawer from "../MainLayouts/Header/SimpleHeader";
+
+import Bottomcon from "../../pages/Symbols/bottomcon";
+
+import CandleChart from "./Candle/index";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -50,9 +55,17 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box>
-      <AppBar position="fixed" sx={{ background: "#191B20" }}>
+      <Box>
+        <MiniDrawer />
+      </Box>
+      <AppBar
+        position="fixed"
+        sx={{ background: "#191B20", display: { md: "none", xs: "block" } }}
+      >
         <Toolbar>
-          <Box sx={{ display: { xs: "flex", md: "none", sm: "none" } }}>
+          <Box
+            sx={{ display: { xs: "flex", md: "flex", sm: "flex", lg: "none" } }}
+          >
             <Button
               variant="contained"
               sx={{
@@ -100,14 +113,13 @@ export default function PrimarySearchAppBar() {
               </Box>
             </Button>
           </Box>
-
           <Container>
             <Box
               sx={{
                 flexGrow: 1,
                 display: {
                   xs: "none",
-                  md: "flex",
+                  md: "none",
 
                   justifyContent: "center",
                 },
@@ -117,7 +129,13 @@ export default function PrimarySearchAppBar() {
             </Box>
           </Container>
 
-          <Box sx={{ display: "flex", justifyContent: "flex-end", zIndex: 2 }}>
+          <Box
+            sx={{
+              display: { xs: "block", md: "none" },
+              justifyContent: "flex-end",
+              zIndex: 2,
+            }}
+          >
             {isMdUp && (
               <Stack direction="row" spacing={1} alignItems="center">
                 <DarkModeOutlinedIcon color={isLight ? "inherit" : "warning"} />
@@ -184,14 +202,13 @@ export default function PrimarySearchAppBar() {
           }}
         >
           <Box sx={{ background: "#2E3034", height: "100vh" }}>
-            {" "}
             {mobileOpen && (
               <NavbarContent handleMobileClose={handleMobileClose} />
             )}
           </Box>
         </Collapse>
       )}
-      <Grid container sx={{ flexWrap: { md: "nowrap" }, height: "10px" }}>
+      {/* <Grid container sx={{ flexWrap: { md: "nowrap" }, height: "10px" }}>
         <Grid item xs={12} md={3}>
           <Symbols />
           {isMdUp && <Divider orientation="horizontal" flexItem />}
@@ -200,7 +217,20 @@ export default function PrimarySearchAppBar() {
           <Divider orientation="vertical" flexItem sx={{ height: "93vh" }} />
         )}
         <Grid item xs={12} md={9}>
-          CandleChart
+          <Container>
+            <Box>
+              <Bottomcon />
+            </Box>
+          </Container>
+        </Grid>
+      </Grid> */}
+
+      <Grid container sx={{ flexWrap: { md: "nowrap" }, height: "10px" }}>
+        <Grid item xs={12} md={8}>
+          <CandleChart />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Symbols />
         </Grid>
       </Grid>
     </Box>
