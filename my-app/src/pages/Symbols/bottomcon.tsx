@@ -11,7 +11,7 @@ function bottomcon() {
           position: "fixed",
           height: "80px",
           width: "830px",
-          top: "600px",
+          top: "85vh",
           marginLeft: "100px",
           borderRadius: "100px",
           boxShadow:

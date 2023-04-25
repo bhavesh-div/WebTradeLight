@@ -120,60 +120,60 @@ const StocksTable = () => {
               }}
             >
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.OpenTime}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.Symbol}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.Volume}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.Side}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.OpenPrice}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.CurrentPrice}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.StopLoss}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.TakeProfit}
                 </Typography>
               </TableCell>
 
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.Swap}
                 </Typography>
               </TableCell>
               <TableCell sx={{ border: "none" }}>
-                <Typography sx={{ color: "#D54C5A", fontSize: "12px" }}>
+                <Typography sx={{ color: "#fff", fontSize: "12px" }}>
                   {row.Comission}
                 </Typography>
               </TableCell>
