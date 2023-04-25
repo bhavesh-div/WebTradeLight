@@ -33,6 +33,7 @@ const MainTabs = ({
               whiteSpace: "nowrap",
               color: "white",
               width: isMdup ? "200px" : "100%",
+              minWidth: "auto",
             }}
             variant={i === value ? "contained" : "text"}
             color="secondary"
